@@ -32,7 +32,7 @@ export default function Home() {
 
   return (
     <div className="container mt-5">
-      <h1 className="mb-4">CSV File Viewer</h1>
+      <h1 className="mb-4 text-center">CSV File Viewer</h1>
       <input
         type="file"
         accept=".csv"
@@ -42,24 +42,26 @@ export default function Home() {
 
       {data.length > 0 && (
         <>
-          <table className="table table-striped">
-            <thead>
-              <tr>
-                {Object.keys(data[0]).map((column, index) => (
-                  <th key={index}>{column}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {currentData.map((row, rowIndex) => (
-                <tr key={rowIndex}>
-                  {Object.keys(row).map((column, colIndex) => (
-                    <td key={colIndex}>{row[column]}</td>
+          <div className="table-responsive">
+            <table className="table table-striped">
+              <thead>
+                <tr>
+                  {Object.keys(data[0]).map((column, index) => (
+                    <th key={index}>{column}</th>
                   ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {currentData.map((row, rowIndex) => (
+                  <tr key={rowIndex}>
+                    {Object.keys(row).map((column, colIndex) => (
+                      <td key={colIndex}>{row[column]}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
 
           <nav>
             <ul className="pagination justify-content-center">
